@@ -14,10 +14,5 @@ romannumeral = ""
 
 currentexceedingvalues = []
 
-while integer != 0 or maxcountexceeded == True:
-    if integer == 0 and maxcountexceeded == True:
-        for i in romancharactercounts:
-            if romancharactercounts[i] > 3:
-                currentexceedingvalues.append(i)
-        for value in currentexceedingvalues:
-            
+while integer != 0:
+    for i in basicromanvalues:
