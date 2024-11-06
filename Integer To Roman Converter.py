@@ -8,11 +8,16 @@ basicromanvalueskeys = list(basicromanvalues.keys())
 
 romancharactercounts = {"M":0,"D":0,"C":0,"L":0,"X":0,"V":0,"I":0}
 
-maxcountexceeded = False
+maxcountexceeded = True
 
-romannumeral =""
+romannumeral = ""
 
-while integer !=0 or maxcountexceeded == False:
-    if integer == 0:
-        romannumeral = ""
-    
+currentexceedingvalues = []
+
+while integer != 0 or maxcountexceeded == True:
+    if integer == 0 and maxcountexceeded == True:
+        for i in romancharactercounts:
+            if romancharactercounts[i] > 3:
+                currentexceedingvalues.append(i)
+        for value in currentexceedingvalues:
+            
