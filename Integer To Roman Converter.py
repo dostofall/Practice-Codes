@@ -1,27 +1,30 @@
 #Program to convert integers into roman numerals
 
 integer = int(input("Enter the number to conver it to roman numeral here: "))
-basicromanvalues = {"M":1000,"D":500,"C":100,"L":50,"X":10,"V":5,"I":1}
+basicromanvaluecount = {"M":0,"D":0,"C":0,"L":0,"X":0,"V":0,"I":0}
 repeatableromanvalues = ["M","C","X","I"]
 romancharacters = ["M","D","C","L","X","V","I"]
-basicromanvalueskeys = list(basicromanvalues.keys())
+basicromanvalueskeys = list(basicromanvaluecount.keys())
 romanvalues = [1000,500,100,50,10,5,1]
 
-basicromanvaluesvalues = list(basicromanvalues.values())
+basicromanvaluesvalues = list(basicromanvaluecount.values())
 
 romannumeral = ""
 
-while integer > 0:
-    for i in basicromanvalues:
-        if basicromanvalues[i] <= integer:
-            integer -= basicromanvalues[i]
-            romannumeral += i
+while integer != 0:
+    for i in romanvalues:
+        if i == integer:
+            integer = 0
             break
-        elif basicromanvalues[i] - integer in romanvalues and romancharacters[romanvalues.index(basicromanvalues[i] - integer)] in repeatableromanvalues:
-            if integer == 0:
-                break
-            romannumeral = romannumeral + romancharacters[romanvalues.index(basicromanvalues[i] - integer)]
-            romannumeral += i
-            integer -= integer
-            break
+        if i < integer:
+            integer -= i
+            basicromanvaluecount[(romancharacters[romanvalues.index(i)])] += 1
+        
+for i in basicromanvaluecount:
+    if basicromanvaluecount[i] > 3:
+        
+
+        
+        
+
 print(romannumeral)
